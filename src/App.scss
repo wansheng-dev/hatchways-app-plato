@@ -13,24 +13,37 @@
   overflow-y: scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+
+  .thumbnail {
+    width: 150px;
+    border: 1px solid #d1d1d1;
+    border-radius: 50%;
+  }
+  
+  .name {
+    font-weight: 800;
+  }
+  
+  .detail {
+    p {
+      margin: 0px;
+    }
+  }
+
+  .search-bar {
+    width: 96%;
+    height: 60px;
+    font-size: 1.4rem;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-bottom-style: groove;
+  }
+  .search-bar:focus {
+    outline: none;
+  }
 }
 
 .content::-webkit-scrollbar {
   display: none;
-}
-
-.thumbnail {
-  width: 150px;
-  border: 1px solid #d1d1d1;
-  border-radius: 50%;
-}
-
-.name {
-  font-weight: 800;
-}
-
-.detail {
-  p {
-    margin: 0px;
-  }
 }

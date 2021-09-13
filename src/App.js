@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.scss";
+import Content from "./components/Content";
 
 function App() {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
+	const [keyword, setKeyword] = useState("");
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -20,41 +22,26 @@ function App() {
 
 	console.log(data);
 
+	const handleChange = (e) => {
+		setKeyword(e.target.value);
+	};
+	const filteredItems = data.filter((item) =>
+		(item.firstName + " " + item.lastName)
+			.toLowerCase()
+			.includes(keyword.toLowerCase())
+	);
+
 	return (
 		<div className="wrapper">
 			<div className="content mx-auto">
 				{loading ? (
 					<h2>Loading...</h2>
 				) : (
-					data.map((item) => (
-						<div className="row border-bottom py-3" key={item.id}>
-							<div className="col-3 d-flex justify-content-center align-self-center">
-								<img
-									className="thumbnail"
-									src={item.pic}
-									alt={item.firstName + " " + item.lastName}
-								/>
-							</div>
-							<div className="col-9">
-								<p className="name h1">
-									{item.firstName.toUpperCase()} {item.lastName.toUpperCase()}
-								</p>
-								<div className="detail row px-5">
-									<p>Email: {item.email}</p>
-									<p>Comapny: {item.company}</p>
-									<p>Skill: {item.skill}</p>
-									<p>
-										Grade:{" "}
-										{item.grades.reduce(
-											(a, b) => parseInt(a) + parseInt(b),
-											0
-										) / item.grades.length}
-										%
-									</p>
-								</div>
-							</div>
-						</div>
-					))
+					<Content
+						data={data}
+						filteredItems={filteredItems}
+						handleChange={handleChange}
+					/>
 				)}
 			</div>
 		</div>
