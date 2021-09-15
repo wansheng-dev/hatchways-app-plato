@@ -20,8 +20,6 @@ function App() {
 		fetchData();
 	}, []);
 
-	console.log(data);
-
 	const handleChange = (e) => {
 		setKeyword(e.target.value);
 	};

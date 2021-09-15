@@ -37,7 +37,8 @@
     border-top-style: hidden;
     border-left-style: hidden;
     border-right-style: hidden;
-    border-bottom-style: groove;
+    border-bottom-style: solid;
+    border-color: #bebebe;
   }
   .search-bar:focus {
     outline: none;
@@ -46,4 +47,8 @@
 
 .content::-webkit-scrollbar {
   display: none;
+}
+
+.icons {
+  size: 20px;
 }
