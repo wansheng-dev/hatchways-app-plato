@@ -43,12 +43,29 @@
   .search-bar:focus {
     outline: none;
   }
+
+  .tag-bar {
+    width: 200px;
+    height: 40px;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-bottom-style: solid;
+    border-color: #bebebe;
+  }
+
+  .tag-bar:focus {
+    outline: none;
+  }
+
+  .tag {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: #dbdbdb;
+    border-radius: 5px;
+  }
 }
 
 .content::-webkit-scrollbar {
   display: none;
-}
-
-.icons {
-  size: 20px;
 }
